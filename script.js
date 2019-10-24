@@ -12,11 +12,11 @@ function App() {
     },
 
     componentDidMount() {
-      console.log("component mounted yay!");
+      alert("component mounted yay!");
     },
 
     componentWillUnmount() {
-      console.log("component will unmount :(");
+      alert("component will unmount :(");
     },
 
     increaseCount() {

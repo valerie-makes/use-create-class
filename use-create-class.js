@@ -14,12 +14,12 @@ export default function useCreateClass(classObject) {
 
   useEffect(() => {
     if (typeof classObject.componentDidMount === "function") {
-      classObject.componentDidMount.call(classObject);
+      classObject.componentDidMount();
     }
 
     return () => {
       if (typeof classObject.componentWillUnmount === "function") {
-        classObject.componentWillUnmount.call(classObject);
+        classObject.componentWillUnmount();
       }
     };
   }, []);

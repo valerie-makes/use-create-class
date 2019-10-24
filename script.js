@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 import useCreateClass from "./use-create-class";
 
-function App() {
+function CountButton({ initialCount = 1 }) {
   const { render } = useCreateClass({
     getInitialState() {
       return {
-        count: 1
+        count: initialCount
       };
     },
 
@@ -30,10 +30,20 @@ function App() {
     }
   });
 
+  return render();
+}
+
+function App() {
+  const [showCountButton, setShowCountButton] = useState(true);
+
   return (
     <div>
       <p>hello</p>
-      {render()}
+      <button onClick={() => setShowCountButton(!showCountButton)}>
+        toggle count button below
+      </button>
+      <br />
+      {showCountButton && <CountButton initialCount={2} />}
     </div>
   );
 }
